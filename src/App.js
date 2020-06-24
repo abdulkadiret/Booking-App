@@ -1,12 +1,15 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "./routes";
 import "./App.css";
-import Booking from "./components/Booking";
+import NavigationBar from "./components/Navbar";
 
 function App() {
   return (
-    <div>
-      <Booking />
-    </div>
+    <Router>
+      <NavigationBar />
+      <Routes />
+    </Router>
   );
 }
 
