@@ -5,7 +5,8 @@
     "diningDate": "26-06-2020",
     "numberOfCovers": 2,
     "phoneNumber": "074280954",
-    "email": "akey@gmail.com"
+    "email": "akey@gmail.com",
+    "isArrived": true
   },
   {
     "firstName": "Muzafer",
@@ -13,7 +14,8 @@
     "diningDate": "24-06-2020",
     "numberOfCovers": 2,
     "phoneNumber": "074280001",
-    "email": "muzafer@gmail.com"
+    "email": "muzafer@gmail.com",
+    "isArrived": false
   },
   {
     "firstName": "Alex",
@@ -21,7 +23,8 @@
     "diningDate": "25-06-2020",
     "numberOfCovers": 5,
     "phoneNumber": "071230981",
-    "email": "alex@gmail.com"
+    "email": "alex@gmail.com",
+    "isArrived": true
   },
   {
     "firstName": "Nyala",
@@ -29,7 +32,8 @@
     "diningDate": "24-06-2020",
     "numberOfCovers": 20,
     "phoneNumber": "073452981",
-    "email": "nyala@yahoo.com"
+    "email": "nyala@yahoo.com",
+    "isArrived": false
   },
   {
     "firstName": "Sophia",
@@ -37,6 +41,7 @@
     "diningDate": "24-06-2020",
     "numberOfCovers": 4,
     "phoneNumber": "079287692",
-    "email": "sophia@yahoo.com"
+    "email": "sophia@yahoo.com",
+    "isArrived": true
   }
 ]
