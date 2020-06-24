@@ -1,18 +1,20 @@
 import React from "react";
 import DATA from "../data/bookingData.json";
+import { Container } from "react-bootstrap";
 
 const Booking = () => {
   return (
-    <div>
-      <table>
-        <thead>
+    <Container className="table-responsive">
+      <h1 className="text-center">Booking</h1>
+      <table className="table table-hover">
+        <thead className="thead-dark">
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Dining Data</th>
-            <th>Number of Covers</th>
-            <th>phone number</th>
-            <th>Email</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Dining Data</th>
+            <th scope="col">Number of Covers</th>
+            <th scope="col">phone number</th>
+            <th scope="col">Email</th>
           </tr>
         </thead>
         {DATA.map((data) => {
@@ -30,7 +32,7 @@ const Booking = () => {
           );
         })}
       </table>
-    </div>
+    </Container>
   );
 };
 
