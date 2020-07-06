@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 
 const Booking = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
 
   const today = new Date();
@@ -174,9 +174,10 @@ const Booking = () => {
             )}
           </div>
         </div>
-        <button className="btn btn-primary align-self-start ml-3" type="submit">
-          Submit
-        </button>
+        <input
+          type="submit"
+          className="p-2 m-3 bg-primary text-white border-0 rounded"
+        />
       </form>
     </Container>
   );
