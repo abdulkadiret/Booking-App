@@ -3,7 +3,16 @@ import { Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 
 const Booking = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const initialFormState = {
+    firstName: '',
+    lastName: '',
+    numberOfPerson: '',
+    date: '',
+    Phone: '',
+    email: '',
+  };
+
+  const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => console.log(data);
 
   const today = new Date();
