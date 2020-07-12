@@ -3,12 +3,17 @@ import { Container } from 'react-bootstrap';
 import { useForm, ErrorMessage } from 'react-hook-form';
 import { connect } from 'react-redux';
 import { addBooking } from '../redux/actions';
+import { v4 as uuidv4 } from 'uuid';
 
 const Booking = ({ addBookingProps }) => {
-  const { register, handleSubmit, errors } = useForm();
+  const [bookingId, setBookingId] = useState('');
+
+  const { register, handleSubmit, errors, watch } = useForm();
 
   const onSubmit = (booking) => {
-    addBookingProps(booking);
+    const id = uuidv4();
+    setBookingId(id);
+    addBookingProps({ ...booking, id });
   };
 
   const today = new Date();
