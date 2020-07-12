@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
+import { markSeated } from '../redux/actions';
 
-const MyBooking = ({ getBookingProps }) => {
+const MyBooking = ({ getBookingProps, markSeatedProps }) => {
   const [bookingId, setBookingId] = useState('');
 
   useEffect(() => {
@@ -94,4 +95,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(MyBooking);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    markSeatedProps: (bookingId, status) =>
+      dispatch(markSeated(bookingId, status)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyBooking);
