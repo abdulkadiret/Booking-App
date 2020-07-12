@@ -2,7 +2,7 @@ import { NEW_BOOKINGS, BOOKINGS_MARK_STATUS } from '../actions';
 
 const INITIAL_BOOKINGS = [];
 
-const bookingReducer = (state = INITIAL_BOOKINGS, action) => {
+const bookingReducer = (state = INITIAL_BOOKINGS, action = {}) => {
   console.log('action =====>', action);
   switch (action.type) {
     case NEW_BOOKINGS:
@@ -13,7 +13,7 @@ const bookingReducer = (state = INITIAL_BOOKINGS, action) => {
         if (booking && booking.id === action.bookingId) {
           return {
             ...booking,
-            status: action.seated,
+            status: action.status,
           };
         } else return booking;
       });
