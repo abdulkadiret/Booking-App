@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 const Seating = ({ bookingsProps }) => {
   let renderTableData = () => {
@@ -55,4 +56,11 @@ const Seating = ({ bookingsProps }) => {
   );
 };
 
-export default Seating;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    bookingsProps: state.bookings,
+  };
+};
+
+export default connect(mapStateToProps)(Seating);
