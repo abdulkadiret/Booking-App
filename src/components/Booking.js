@@ -4,6 +4,7 @@ import { useForm, ErrorMessage } from 'react-hook-form';
 import { connect } from 'react-redux';
 import { addBooking } from '../redux/actions';
 import { v4 as uuidv4 } from 'uuid';
+import { Redirect } from 'react-router-dom';
 
 const Booking = ({ addBookingProps }) => {
   const [bookingId, setBookingId] = useState('');
@@ -184,6 +185,7 @@ const Booking = ({ addBookingProps }) => {
           className="p-2 m-3 bg-primary text-white border-0 rounded"
         />
       </form>
+      {bookingId && <Redirect to={`/myBooking/${bookingId}`} />}
     </Container>
   );
 };
