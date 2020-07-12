@@ -3,8 +3,7 @@ export const BOOKINGS_MARK_STATUS = 'BOOKINGS_MARK_STATUS';
 export const GET_BOOKING = 'GET_BOOKING';
 
 export const addBooking = (newBooking) => {
-  const action = { type: NEW_BOOKINGS, newBooking };
-  return action;
+  return { type: NEW_BOOKINGS, newBooking };
 };
 
 export const getBooking = (bookingId) => {
@@ -13,6 +12,5 @@ export const getBooking = (bookingId) => {
 };
 
 export const markSeated = (bookingId, status) => {
-  const action = { type: BOOKINGS_MARK_STATUS, bookingId, status };
-  return action;
+  return { type: BOOKINGS_MARK_STATUS, bookingId, status };
 };
