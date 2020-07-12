@@ -12,10 +12,11 @@ const Booking = ({ addBookingProps }) => {
 
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (booking) => {
+  const onSubmit = (booking, e) => {
     const id = uuidv4();
     setBookingId(id);
     addBookingProps({ ...booking, id });
+    e.target.reset();
   };
 
   const today = new Date();
