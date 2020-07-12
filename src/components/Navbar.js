@@ -1,6 +1,6 @@
-import React from "react";
-import { Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { Nav, Navbar } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 const NavigationBar = () => {
   return (
@@ -10,6 +10,9 @@ const NavigationBar = () => {
         <Nav>
           <Nav.Link as={NavLink} to="/">
             Booking
+          </Nav.Link>
+          <Nav.Link as={NavLink} to="/MyBooking">
+            My Booking
           </Nav.Link>
           <Nav.Link as={NavLink} to="/seating">
             Seating
