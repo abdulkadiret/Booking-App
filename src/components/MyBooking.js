@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { connect } from 'react-redux';
 
-const MyBooking = ({ array = {} }) => {
+const MyBooking = ({ getBookingProps }) => {
+  const [bookingId, setBookingId] = useState('');
+
+  useEffect(() => {
+    const { pathname } = window.location;
+    const bookingId = pathname && pathname.split('/')[2];
+    setBookingId(bookingId);
+  }, []);
+
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -15,22 +24,28 @@ const MyBooking = ({ array = {} }) => {
           <Card.Text>
             <dl className="row">
               <dt className="col-md-6">First Name: </dt>
-              <dd className="col-md-6">{array.firstName}</dd>
+              <dd className="col-md-6">
+                {getBookingProps(bookingId).firstName}
+              </dd>
 
               <dt className="col-md-6">Last Name: </dt>
-              <dd className="col-md-6">{array.lastName}</dd>
+              <dd className="col-md-6">
+                {getBookingProps(bookingId).lastName}
+              </dd>
 
               <dt className="col-md-6">Number of Guests: </dt>
-              <dd className="col-md-6">{array.numberOfGuests}</dd>
+              <dd className="col-md-6">
+                {getBookingProps(bookingId).numberOfGuests}
+              </dd>
 
               <dt className="col-md-6">Dining Date: </dt>
-              <dd className="col-md-6">{array.date}</dd>
+              <dd className="col-md-6">{getBookingProps(bookingId).date}</dd>
 
               <dt className="col-md-6">Phone Number: </dt>
-              <dd className="col-md-6">{array.phone}</dd>
+              <dd className="col-md-6">{getBookingProps(bookingId).phone}</dd>
 
               <dt className="col-md-6">Email: </dt>
-              <dd className="col-md-6">{array.email}</dd>
+              <dd className="col-md-6">{getBookingProps(bookingId).email}</dd>
             </dl>
           </Card.Text>
         </Card.Body>
@@ -72,4 +87,11 @@ const MyBooking = ({ array = {} }) => {
   );
 };
 
-export default MyBooking;
+const mapStateToProps = (state) => {
+  return {
+    getBookingProps: (bookingId) =>
+      state.bookings.find((booking) => booking.id === bookingId) || {},
+  };
+};
+
+export default connect(mapStateToProps)(MyBooking);
