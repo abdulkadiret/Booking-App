@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm, ErrorMessage } from 'react-hook-form';
 import { connect } from 'react-redux';
+import { addBooking } from '../redux/actions';
 
-const Booking = () => {
+const Booking = ({ addBookingProps }) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => console.log(data);
@@ -180,4 +181,10 @@ const Booking = () => {
   );
 };
 
-export default connect()(Booking);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addBookingProps: (newBooking) => dispatch(addBooking(newBooking)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Booking);
