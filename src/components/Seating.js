@@ -4,6 +4,16 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const Seating = ({ bookingsProps }) => {
+  const getStatusClass = (status) => {
+    if (status === 'Seated') {
+      return 'text-white bg-success';
+    } else if (status === 'Not Arrived') {
+      return 'text-white bg-danger';
+    } else {
+      return '';
+    }
+  };
+
   let renderTableData = () => {
     return (
       <tbody>
@@ -27,7 +37,7 @@ const Seating = ({ bookingsProps }) => {
               <td>{date}</td>
               <td>{phone}</td>
               <td>{email}</td>
-              <td>{status}</td>
+              <td className={getStatusClass(status)}>{status}</td>
             </tr>
           );
         })}
