@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import { useForm, ErrorMessage } from 'react-hook-form';
 
 const Booking = () => {
-  const initialFormState = {
-    firstName: '',
-    lastName: '',
-    numberOfPerson: '',
-    date: '',
-    Phone: '',
-    email: '',
-  };
-
   const { register, handleSubmit, errors } = useForm();
+
   const onSubmit = (data) => console.log(data);
 
   const today = new Date();
@@ -27,16 +19,16 @@ const Booking = () => {
     mm = `0${mm}`;
   }
   const date = yyyy + '-' + mm + '-' + dd;
-  console.log('Date', date);
+
   return (
-    <Container className="d-flex flex-column align-items-center mt-5">
+    <Container className="d-flex flex-column align-items-center shadow p-5 my-3 bg-light">
       <>
         <h3>Make Your Booking Here</h3>
         <p>It's quick and easy</p>
       </>
       <form
-        class="form-group d-flex flex-column justify-content-center"
         onSubmit={handleSubmit(onSubmit)}
+        className="form-group d-flex flex-column justify-content-center"
       >
         <div className="form-group d-flex">
           <div className="col-md-6">
@@ -45,23 +37,21 @@ const Booking = () => {
             </label>
             <input
               type="text"
-              className="form-control"
               name="firstName"
+              className="form-control"
               id="firstName"
               ref={register({
-                required: {
-                  value: true,
-                  message: 'First name is required',
-                },
+                required: 'Required',
                 pattern: /^[A-Za-z]+$/i,
                 maxLength: 30,
               })}
             />
-            {errors.firstName && (
-              <p style={{ color: 'red' }}>
-                <small> {errors.firstName.message}</small>
-              </p>
-            )}
+            <ErrorMessage
+              errors={errors}
+              name="firstName"
+              as="p"
+              style={{ color: 'red', fontSize: 12 }}
+            />
           </div>
           <div className="col-md-6">
             <label for="lastName" className="text-muted">
@@ -69,71 +59,65 @@ const Booking = () => {
             </label>
             <input
               type="text"
-              className="form-control"
               name="lastName"
+              className="form-control"
               id="lastName"
               ref={register({
-                required: {
-                  value: true,
-                  message: 'Last name is required',
-                },
+                required: 'Required',
                 pattern: /^[A-Za-z]+$/i,
                 maxLength: 30,
               })}
             />
-            {errors.lastName && (
-              <p style={{ color: 'red' }}>
-                <small>{errors.lastName.message}</small>
-              </p>
-            )}
+            <ErrorMessage
+              errors={errors}
+              name="lastName"
+              as="p"
+              style={{ color: 'red', fontSize: 12 }}
+            />
           </div>
         </div>
         <div className="form-group d-flex justify-content-center">
           <div className="col-md-4">
-            <label for="quantity" className="text-muted">
-              Number of people:{' '}
+            <label for="numberOfGuests" className="text-muted">
+              Number of People:{' '}
             </label>
             <input
               type="number"
+              name="numberOfGuests"
               className="form-control"
-              name="quantity"
-              id="quantity"
+              id="numberOfGuests"
               min="1"
               ref={register({
-                required: {
-                  value: true,
-                  message: 'Number of covers is required',
-                },
+                required: 'Required',
               })}
             />
-            {errors.quantity && (
-              <p style={{ color: 'red' }}>
-                <small> {errors.quantity.message}</small>
-              </p>
-            )}
+            <ErrorMessage
+              errors={errors}
+              name="numberOfGuests"
+              as="p"
+              style={{ color: 'red', fontSize: 12 }}
+            />
           </div>
           <div className="col-md-4 mr-auto ml-auto">
-            <label for="date-picker" className="text-muted">
-              Pick date:{' '}
+            <label for="date" className="text-muted">
+              Pick Date:{' '}
             </label>
             <input
               type="date"
+              name="date"
               className="form-control"
-              name="datePicker"
-              id="datePicker"
+              id="date"
               min={`${date}`}
               ref={register({
-                required: {
-                  value: true,
-                  message: 'Date is required',
-                },
+                required: 'Required',
               })}
             />
-            {errors.datePicker && (
-              <p style={{ color: 'red' }}>
-                <small> {errors.datePicker.message}</small>
-              </p>
-            )}
+            <ErrorMessage
+              errors={errors}
+              name="date"
+              as="p"
+              style={{ color: 'red', fontSize: 12 }}
+            />
           </div>
         </div>
         <div className="form-group d-flex">
@@ -143,25 +127,23 @@ const Booking = () => {
             </label>
             <input
               type="tel"
-              className="form-control"
               name="phone"
+              className="form-control"
               id="phone"
               ref={register({
-                required: {
-                  value: true,
-                  message: 'Phone number is required',
-                },
+                required: 'Required',
                 minLength: {
                   value: 11,
                   message: 'Phone number should be minimum of 11 digits',
                 },
               })}
             />
-            {errors.phone && (
-              <p style={{ color: 'red' }}>
-                <small> {errors.phone.message}</small>
-              </p>
-            )}
+            <ErrorMessage
+              errors={errors}
+              name="phone"
+              as="p"
+              style={{ color: 'red', fontSize: 12 }}
+            />
           </div>
           <div className="col-sm-6">
             <label for="email" className="text-muted">
@@ -169,18 +151,23 @@ const Booking = () => {
             </label>
             <input
               type="email"
-              className="form-control"
               name="email"
+              className="form-control"
               id="email"
               ref={register({
-                required: { value: true, message: 'Email is required' },
+                required: 'Required',
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: 'Invalid email address format',
+                },
               })}
             />
-            {errors.email && (
-              <p style={{ color: 'red' }}>
-                <small> {errors.email.message}</small>
-              </p>
-            )}
+            <ErrorMessage
+              errors={errors}
+              name="email"
+              as="p"
+              style={{ color: 'red', fontSize: 12 }}
+            />
           </div>
         </div>
         <input
