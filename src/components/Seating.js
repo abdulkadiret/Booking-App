@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const Seating = ({ bookingsProps }) => {
   let renderTableData = () => {
@@ -19,6 +20,7 @@ const Seating = ({ bookingsProps }) => {
           } = booking; //destructuring
           return (
             <tr key={id}>
+              <td>{id}</td>
               <td>{firstName}</td>
               <td>{lastName}</td>
               <td>{numberOfGuests}</td>
@@ -41,6 +43,7 @@ const Seating = ({ bookingsProps }) => {
       <table className="table table-hover">
         <thead className="thead-dark">
           <tr>
+            <th scope="col">Booking ID</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Number of Guests</th>
@@ -54,6 +57,10 @@ const Seating = ({ bookingsProps }) => {
       </table>
     </Container>
   );
+};
+
+Seating.propTypes = {
+  bookingsProps: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => {

@@ -5,11 +5,12 @@ import { connect } from 'react-redux';
 import { addBooking } from '../redux/actions';
 import { v4 as uuidv4 } from 'uuid';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Booking = ({ addBookingProps }) => {
   const [bookingId, setBookingId] = useState('');
 
-  const { register, handleSubmit, errors, watch } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (booking) => {
     const id = uuidv4();
@@ -188,6 +189,10 @@ const Booking = ({ addBookingProps }) => {
       {bookingId && <Redirect to={`/myBooking/${bookingId}`} />}
     </Container>
   );
+};
+
+Booking.propTypes = {
+  addBookingProps: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => {

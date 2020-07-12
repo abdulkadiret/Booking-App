@@ -3,6 +3,7 @@ import { Card, Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
 import { markSeated } from '../redux/actions';
+import PropTypes from 'prop-types';
 
 const MyBooking = ({ getBookingProps, markSeatedProps }) => {
   const [bookingId, setBookingId] = useState('');
@@ -90,6 +91,11 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
       </Card>
     </Container>
   );
+};
+
+MyBooking.propTypes = {
+  getBookingProps: PropTypes.func.isRequired,
+  markSeatedProps: PropTypes.func,
 };
 
 const mapStateToProps = (state) => {
