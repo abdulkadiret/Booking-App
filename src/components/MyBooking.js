@@ -16,8 +16,12 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const { pathname } = window.location;
+    const bookingId = pathname && pathname.split('/')[2];
+    console.log('statusData=========>>>', data);
+    markSeatedProps(bookingId, data.status);
   };
+
   return (
     <Container className="d-flex flex-column align-items-center">
       <Card className="col-md-6 d-flex flex-column align-items-center shadow p-3 my-3 bg-light rounded">
