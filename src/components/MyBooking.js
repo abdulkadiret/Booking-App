@@ -28,7 +28,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
     <Container className="d-flex flex-column align-items-center">
       <Card className="col-md-6 d-flex flex-column align-items-center shadow p-3 my-3 bg-light rounded">
         <Card.Body>
-          <Card.Text>
+          <div>
             <dl className="row">
               <dt className="col-md-6">First Name: </dt>
               <dd className="col-md-6">
@@ -54,7 +54,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               <dt className="col-md-6">Email: </dt>
               <dd className="col-md-6">{getBookingProps(bookingId).email}</dd>
             </dl>
-          </Card.Text>
+          </div>
         </Card.Body>
         <div>
           <form onSubmit={handleSubmit(onSubmit)}>
