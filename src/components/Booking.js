@@ -7,7 +7,9 @@ import { addBooking } from '../redux/actions';
 const Booking = ({ addBookingProps }) => {
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (booking) => {
+    addBookingProps(booking);
+  };
 
   const today = new Date();
   let yyyy = today.getFullYear();
