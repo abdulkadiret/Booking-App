@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm, ErrorMessage } from 'react-hook-form';
+import { connect } from 'react-redux';
 
 const Booking = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -179,4 +180,4 @@ const Booking = () => {
   );
 };
 
-export default Booking;
+export default connect()(Booking);
