@@ -68,7 +68,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               ref={register}
             />
 
-            <label for="notArrived" className="text-muted mr-2">
+            <label htmlFor="notArrived" className="text-muted mr-2">
               Not Arrived
             </label>
 
@@ -80,7 +80,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               value="Seated"
               ref={register}
             />
-            <label for="seated" className="text-muted mr-2">
+            <label htmlFor="seated" className="text-muted mr-2">
               Seated
             </label>
             <input

@@ -44,7 +44,7 @@ const Booking = ({ addBookingProps }) => {
       >
         <div className="form-group d-flex">
           <div className="col-md-6">
-            <label for="firstName" className="text-muted">
+            <label htmlFor="firstName" className="text-muted">
               First Name:{' '}
             </label>
             <input
@@ -66,7 +66,7 @@ const Booking = ({ addBookingProps }) => {
             />
           </div>
           <div className="col-md-6">
-            <label for="lastName" className="text-muted">
+            <label htmlFor="lastName" className="text-muted">
               Last Name:{' '}
             </label>
             <input
@@ -90,8 +90,8 @@ const Booking = ({ addBookingProps }) => {
         </div>
         <div className="form-group d-flex justify-content-center">
           <div className="col-md-4">
-            <label for="numberOfGuests" className="text-muted">
-              Number of People:{' '}
+            <label htmlFor="numberOfGuests" className="text-muted">
+              Number of Guests:{' '}
             </label>
             <input
               type="number"
@@ -111,7 +111,7 @@ const Booking = ({ addBookingProps }) => {
             />
           </div>
           <div className="col-md-4 mr-auto ml-auto">
-            <label for="date" className="text-muted">
+            <label htmlFor="date" className="text-muted">
               Pick Date:{' '}
             </label>
             <input
@@ -134,7 +134,7 @@ const Booking = ({ addBookingProps }) => {
         </div>
         <div className="form-group d-flex">
           <div className="col-sm-6">
-            <label for="phone" className="text-muted">
+            <label htmlFor="phone" className="text-muted">
               Phone Number:{' '}
             </label>
             <input
@@ -158,7 +158,7 @@ const Booking = ({ addBookingProps }) => {
             />
           </div>
           <div className="col-sm-6">
-            <label for="email" className="text-muted">
+            <label htmlFor="email" className="text-muted">
               Email:{' '}
             </label>
             <input
