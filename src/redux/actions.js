@@ -1,6 +1,18 @@
 export const NEW_BOOKINGS = 'NEW_BOOKINGS';
+export const BOOKINGS_MARK_STATUS = 'BOOKINGS_MARK_STATUS';
+export const GET_BOOKING = 'GET_BOOKING';
 
 export const addBooking = (newBooking) => {
   const action = { type: NEW_BOOKINGS, newBooking };
+  return action;
+};
+
+export const getBooking = (bookingId) => {
+  const action = { type: GET_BOOKING, bookingId };
+  return action;
+};
+
+export const markSeated = (bookingId, status) => {
+  const action = { type: BOOKINGS_MARK_STATUS, bookingId, status };
   return action;
 };
