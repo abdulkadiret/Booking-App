@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 const Seating = ({ bookingsProps }) => {
   const getStatusClass = (status) => {
     if (status === 'Seated') {
-      return 'text-white bg-success';
+      return 'table-success';
     } else if (status === 'Not Arrived') {
-      return 'text-white bg-danger';
+      return 'table-danger';
     } else {
-      return '';
+      return 'table-warning';
     }
   };
 
@@ -29,7 +29,7 @@ const Seating = ({ bookingsProps }) => {
             status,
           } = booking; //destructuring
           return (
-            <tr key={id}>
+            <tr key={id} className={getStatusClass(status)}>
               <td>{id}</td>
               <td>{firstName}</td>
               <td>{lastName}</td>
@@ -37,7 +37,7 @@ const Seating = ({ bookingsProps }) => {
               <td>{date}</td>
               <td>{phone}</td>
               <td>{email}</td>
-              <td className={getStatusClass(status)}>{status}</td>
+              <td>{status}</td>
             </tr>
           );
         })}
