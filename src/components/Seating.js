@@ -74,7 +74,6 @@ Seating.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     bookingsProps: state.bookings,
   };
