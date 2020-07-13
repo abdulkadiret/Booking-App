@@ -40,7 +40,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
                 {getBookingProps(bookingId).lastName}
               </dd>
 
-              <dt className="col-md-6">Number of Guests: </dt>
+              <dt className="col-md-6">&#8470; of Guests: </dt>
               <dd className="col-md-6">
                 {getBookingProps(bookingId).numberOfGuests}
               </dd>
@@ -48,7 +48,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               <dt className="col-md-6">Dining Date: </dt>
               <dd className="col-md-6">{getBookingProps(bookingId).date}</dd>
 
-              <dt className="col-md-6">Phone Number: </dt>
+              <dt className="col-md-6">Phone &#8470;: </dt>
               <dd className="col-md-6">{getBookingProps(bookingId).phone}</dd>
 
               <dt className="col-md-6">Email: </dt>

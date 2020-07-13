@@ -53,12 +53,12 @@ const Seating = ({ bookingsProps }) => {
       <table className="table table-hover">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">Booking Ref</th>
+            <th scope="col">Booking Ref &#8470;</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
-            <th scope="col">Number of Guests</th>
+            <th scope="col">&#8470; of Guests</th>
             <th scope="col">Dining Date</th>
-            <th scope="col">Phone Number</th>
+            <th scope="col">Phone &#8470;</th>
             <th scope="col">Email</th>
             <th scope="col">Status</th>
           </tr>

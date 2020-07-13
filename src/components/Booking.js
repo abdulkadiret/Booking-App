@@ -45,7 +45,7 @@ const Booking = ({ addBookingProps }) => {
         <div className="form-group d-flex">
           <div className="col-md-6">
             <label htmlFor="firstName" className="text-muted">
-              First Name:{' '}
+              First Name
             </label>
             <input
               type="text"
@@ -67,7 +67,7 @@ const Booking = ({ addBookingProps }) => {
           </div>
           <div className="col-md-6">
             <label htmlFor="lastName" className="text-muted">
-              Last Name:{' '}
+              Last Name
             </label>
             <input
               type="text"
@@ -91,7 +91,7 @@ const Booking = ({ addBookingProps }) => {
         <div className="form-group d-flex justify-content-center">
           <div className="col-md-4">
             <label htmlFor="numberOfGuests" className="text-muted">
-              Number of Guests:{' '}
+              &#8470; of Guests
             </label>
             <input
               type="number"
@@ -112,7 +112,7 @@ const Booking = ({ addBookingProps }) => {
           </div>
           <div className="col-md-4 mr-auto ml-auto">
             <label htmlFor="date" className="text-muted">
-              Pick Date:{' '}
+              Pick Date
             </label>
             <input
               type="date"
@@ -135,7 +135,7 @@ const Booking = ({ addBookingProps }) => {
         <div className="form-group d-flex">
           <div className="col-sm-6">
             <label htmlFor="phone" className="text-muted">
-              Phone Number:{' '}
+              Phone &#8470;
             </label>
             <input
               type="tel"
@@ -159,7 +159,7 @@ const Booking = ({ addBookingProps }) => {
           </div>
           <div className="col-sm-6">
             <label htmlFor="email" className="text-muted">
-              Email:{' '}
+              Email
             </label>
             <input
               type="email"
