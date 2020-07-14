@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import pReducer from './reducers/reducers';
+import pReducer from './reducers/rootReducer';
 import { persistStore } from 'redux-persist';
 
 const store = createStore(

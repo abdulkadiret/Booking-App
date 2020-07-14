@@ -8,10 +8,10 @@ const persistConfig = {
   storage,
 };
 
-const allReducers = combineReducers({
+const rootReducer = combineReducers({
   bookings: bookingReducer,
 });
 
-const pReducer = persistReducer(persistConfig, allReducers);
+const pReducer = persistReducer(persistConfig, rootReducer);
 
 export default pReducer;
