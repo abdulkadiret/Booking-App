@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 const MyBooking = ({ getBookingProps, markSeatedProps }) => {
   const [bookingId, setBookingId] = useState('');
+  const [status, setStatus] = useState(null);
 
   useEffect(() => {
     const { pathname } = window.location;
@@ -19,6 +20,10 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
   const onSubmit = (data, e) => {
     markSeatedProps(bookingId, data.status);
     e.target.reset();
+  };
+
+  const onRadioChange = (e) => {
+    setStatus(e.target.value);
   };
 
   return (
@@ -61,8 +66,10 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               name="status"
               className="mx-1"
               id="notArrived"
-              value="Not Arrived"
               ref={register}
+              value="Not Arrived"
+              onChange={onRadioChange}
+              checked={status === 'Not Arrived'}
             />
 
             <label htmlFor="notArrived" className="text-muted mr-2">
@@ -74,16 +81,14 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               name="status"
               className="mr-1"
               id="seated"
-              value="Seated"
               ref={register}
+              value="Seated"
+              onChange={onRadioChange}
+              checked={status === 'Seated'}
             />
             <label htmlFor="seated" className="text-muted mr-2">
               Seated
             </label>
-            <input
-              type="submit"
-              className="bg-primary text-white border-0 rounded px-2 py-1"
-            />
           </form>
         </div>
       </Card>
