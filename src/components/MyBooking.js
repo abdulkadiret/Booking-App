@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 const MyBooking = ({ getBookingProps, markSeatedProps }) => {
   const [bookingId, setBookingId] = useState('');
   const [status, setStatus] = useState(null);
+  const [shouldDisplayButton, setShouldDisplayButton] = useState(false);
 
   useEffect(() => {
     const { pathname } = window.location;
@@ -24,6 +25,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
 
   const onRadioChange = (e) => {
     setStatus(e.target.value);
+    setShouldDisplayButton(true);
   };
 
   return (
@@ -55,6 +57,15 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
 
               <dt className="col-md-6 text-muted">Email: </dt>
               <dd className="col-md-6">{getBookingProps(bookingId).email}</dd>
+
+              {getBookingProps(bookingId).status || shouldDisplayButton ? (
+                <>
+                  <dt className="col-md-6 text-muted">Status: </dt>
+                  <dd className="col-md-6">
+                    {getBookingProps(bookingId).status}
+                  </dd>
+                </>
+              ) : null}
             </dl>
           </div>
         </Card.Body>
@@ -89,6 +100,12 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
             <label htmlFor="seated" className="text-muted mr-2">
               Seated
             </label>
+            {shouldDisplayButton ? (
+              <input
+                type="submit"
+                className="bg-primary text-white border-0 rounded px-2 py-1"
+              />
+            ) : null}
           </form>
         </div>
       </Card>
