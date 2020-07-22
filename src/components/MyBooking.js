@@ -30,28 +30,28 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
         <Card.Body>
           <div>
             <dl className="row">
-              <dt className="col-md-6">First Name: </dt>
+              <dt className="col-md-6 text-muted">First Name: </dt>
               <dd className="col-md-6">
                 {getBookingProps(bookingId).firstName}
               </dd>
 
-              <dt className="col-md-6">Last Name: </dt>
+              <dt className="col-md-6 text-muted">Last Name: </dt>
               <dd className="col-md-6">
                 {getBookingProps(bookingId).lastName}
               </dd>
 
-              <dt className="col-md-6">&#8470; of Guests: </dt>
+              <dt className="col-md-6 text-muted">&#8470; of Guests: </dt>
               <dd className="col-md-6">
                 {getBookingProps(bookingId).numberOfGuests}
               </dd>
 
-              <dt className="col-md-6">Dining Date: </dt>
+              <dt className="col-md-6 text-muted">Dining Date: </dt>
               <dd className="col-md-6">{getBookingProps(bookingId).date}</dd>
 
-              <dt className="col-md-6">Phone &#8470;: </dt>
+              <dt className="col-md-6 text-muted">Phone &#8470;: </dt>
               <dd className="col-md-6">{getBookingProps(bookingId).phone}</dd>
 
-              <dt className="col-md-6">Email: </dt>
+              <dt className="col-md-6 text-muted">Email: </dt>
               <dd className="col-md-6">{getBookingProps(bookingId).email}</dd>
             </dl>
           </div>
