@@ -17,9 +17,6 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data, e) => {
-    const { pathname } = window.location;
-    const bookingId = pathname && pathname.split('/')[2];
-    console.log('statusData=========>>>', data);
     markSeatedProps(bookingId, data.status);
     e.target.reset();
   };
