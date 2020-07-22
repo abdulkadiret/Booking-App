@@ -103,6 +103,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
             {shouldDisplayButton ? (
               <input
                 type="submit"
+                value="Update"
                 className="bg-primary text-white border-0 rounded px-2 py-1"
               />
             ) : null}
