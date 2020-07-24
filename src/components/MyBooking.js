@@ -34,6 +34,9 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
         <Card.Body>
           <div>
             <dl className="row">
+              <dt className="col-md-6 text-muted">Booking Ref &#8470;: </dt>
+              <dd className="col-md-6">{getBookingProps(bookingId).id}</dd>
+
               <dt className="col-md-6 text-muted">First Name: </dt>
               <dd className="col-md-6">
                 {getBookingProps(bookingId).firstName}
