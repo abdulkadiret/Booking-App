@@ -9,6 +9,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
   const [bookingId, setBookingId] = useState('');
   const [status, setStatus] = useState(null);
   const [shouldDisplayButton, setShouldDisplayButton] = useState(false);
+  const [shouldDisplaySearch, setShouldDisplaySearch] = useState(false);
 
   useEffect(() => {
     const { pathname } = window.location;
@@ -30,12 +31,13 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
 
   const onSearch = (id, e) => {
     setBookingId(id.bookingRefNum);
+    setShouldDisplaySearch(true);
     e.target.reset();
   };
 
   return (
     <Container className="d-flex flex-column align-items-center">
-      {bookingId ? (
+      {Object.keys(getBookingProps(bookingId)).length ? (
         <Card className="col-md-6 d-flex flex-column align-items-center shadow p-3 my-3 bg-light rounded">
           <Card.Body>
             <div>
@@ -145,6 +147,15 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               </span>
             </fieldset>
           </form>
+          {shouldDisplaySearch &&
+            !Object.keys(getBookingProps(bookingId)).length && (
+              <p className="col-md-6 text-danger">
+                <small>
+                  Can't get any booking with this Ref &#8470;, Please check your
+                  Booking Ref &#8470; and try again.
+                </small>
+              </p>
+            )}
         </>
       )}
     </Container>
