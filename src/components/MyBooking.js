@@ -30,49 +30,49 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
 
   return (
     <Container className="d-flex flex-column align-items-center">
-      <Card className="col-md-6 d-flex flex-column align-items-center shadow p-3 my-3 bg-light rounded">
-        <Card.Body>
-          <div>
-            <dl className="row">
-              <dt className="col-md-6 text-muted">Booking Ref &#8470;: </dt>
-              <dd className="col-md-6">{getBookingProps(bookingId).id}</dd>
+      {bookingId ? (
+        <Card className="col-md-6 d-flex flex-column align-items-center shadow p-3 my-3 bg-light rounded">
+          <Card.Body>
+            <div>
+              <dl className="row">
+                <dt className="col-md-6 text-muted">Booking Ref &#8470;: </dt>
+                <dd className="col-md-6">{getBookingProps(bookingId).id}</dd>
 
-              <dt className="col-md-6 text-muted">First Name: </dt>
-              <dd className="col-md-6">
-                {getBookingProps(bookingId).firstName}
-              </dd>
+                <dt className="col-md-6 text-muted">First Name: </dt>
+                <dd className="col-md-6">
+                  {getBookingProps(bookingId).firstName}
+                </dd>
 
-              <dt className="col-md-6 text-muted">Last Name: </dt>
-              <dd className="col-md-6">
-                {getBookingProps(bookingId).lastName}
-              </dd>
+                <dt className="col-md-6 text-muted">Last Name: </dt>
+                <dd className="col-md-6">
+                  {getBookingProps(bookingId).lastName}
+                </dd>
 
-              <dt className="col-md-6 text-muted">&#8470; of Guests: </dt>
-              <dd className="col-md-6">
-                {getBookingProps(bookingId).numberOfGuests}
-              </dd>
+                <dt className="col-md-6 text-muted">&#8470; of Guests: </dt>
+                <dd className="col-md-6">
+                  {getBookingProps(bookingId).numberOfGuests}
+                </dd>
 
-              <dt className="col-md-6 text-muted">Dining Date: </dt>
-              <dd className="col-md-6">{getBookingProps(bookingId).date}</dd>
+                <dt className="col-md-6 text-muted">Dining Date: </dt>
+                <dd className="col-md-6">{getBookingProps(bookingId).date}</dd>
 
-              <dt className="col-md-6 text-muted">Phone &#8470;: </dt>
-              <dd className="col-md-6">{getBookingProps(bookingId).phone}</dd>
+                <dt className="col-md-6 text-muted">Phone &#8470;: </dt>
+                <dd className="col-md-6">{getBookingProps(bookingId).phone}</dd>
 
-              <dt className="col-md-6 text-muted">Email: </dt>
-              <dd className="col-md-6">{getBookingProps(bookingId).email}</dd>
+                <dt className="col-md-6 text-muted">Email: </dt>
+                <dd className="col-md-6">{getBookingProps(bookingId).email}</dd>
 
-              {getBookingProps(bookingId).status || shouldDisplayButton ? (
-                <>
-                  <dt className="col-md-6 text-muted">Status: </dt>
-                  <dd className="col-md-6">
-                    {getBookingProps(bookingId).status}
-                  </dd>
-                </>
-              ) : null}
-            </dl>
-          </div>
-        </Card.Body>
-        <div>
+                {getBookingProps(bookingId).status || shouldDisplayButton ? (
+                  <>
+                    <dt className="col-md-6 text-muted">Status: </dt>
+                    <dd className="col-md-6">
+                      {getBookingProps(bookingId).status}
+                    </dd>
+                  </>
+                ) : null}
+              </dl>
+            </div>
+          </Card.Body>
           <form onSubmit={handleSubmit(onSubmit)}>
             <label className="text-muted mr-2">Status: </label>
             <input
@@ -85,11 +85,9 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               onChange={onRadioChange}
               checked={status === 'Not Arrived'}
             />
-
             <label htmlFor="notArrived" className="text-muted mr-2">
               Not Arrived
             </label>
-
             <input
               type="radio"
               name="status"
@@ -111,8 +109,39 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               />
             ) : null}
           </form>
-        </div>
-      </Card>
+        </Card>
+      ) : (
+        <>
+          <form
+            onSubmit={handleSubmit()}
+            className="form-inline form-group d-flex justify-content-center mt-3"
+          >
+            <fieldset className="col-md-8">
+              <span>
+                <label htmlFor="bookingRefNum" className="text-muted">
+                  Enter Your Booking Ref &#8470; To See Your Booking Details and
+                  Update Your Status
+                </label>
+                <input
+                  type="search"
+                  name="bookingRefNum"
+                  className="form-control mr-sm-2 my-1"
+                  id="search"
+                  ref={register}
+                  placeholder="Search"
+                />
+              </span>
+              <span>
+                <input
+                  type="submit"
+                  value="Search"
+                  className="btn btn-outline-success my-1 my-sm-0"
+                />
+              </span>
+            </fieldset>
+          </form>
+        </>
+      )}
     </Container>
   );
 };
