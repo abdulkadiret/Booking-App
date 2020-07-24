@@ -112,7 +112,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               <input
                 type="submit"
                 value="Update"
-                className="bg-primary text-white border-0 rounded px-2 py-1"
+                className="btn btn-outline-success my-2 my-sm-0"
               />
             ) : null}
           </form>

@@ -182,10 +182,7 @@ const Booking = ({ addBookingProps }) => {
             />
           </div>
         </div>
-        <input
-          type="submit"
-          className="p-2 m-3 bg-primary text-white border-0 rounded"
-        />
+        <input type="submit" className="btn btn-primary m-3" />
       </form>
       {bookingId && <Redirect to={`/myBooking/${bookingId}`} />}
     </Container>
