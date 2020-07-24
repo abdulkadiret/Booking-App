@@ -28,6 +28,11 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
     setShouldDisplayButton(true);
   };
 
+  const onSearch = (id, e) => {
+    setBookingId(id.bookingRefNum);
+    e.target.reset();
+  };
+
   return (
     <Container className="d-flex flex-column align-items-center">
       {bookingId ? (
@@ -113,7 +118,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
       ) : (
         <>
           <form
-            onSubmit={handleSubmit()}
+            onSubmit={handleSubmit(onSearch)}
             className="form-inline form-group d-flex justify-content-center mt-3"
           >
             <fieldset className="col-md-8">
