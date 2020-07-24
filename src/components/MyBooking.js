@@ -21,12 +21,18 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
 
   const onSubmit = (data, e) => {
     markSeatedProps(bookingId, data.status);
+    setShouldDisplayButton(false);
     e.target.reset();
   };
 
   const onRadioChange = (e) => {
     setStatus(e.target.value);
     setShouldDisplayButton(true);
+    if (getBookingProps(bookingId).status === e.target.value) {
+      setShouldDisplayButton(false);
+    } else {
+      setShouldDisplayButton(true);
+    }
   };
 
   const onSearch = (id, e) => {
@@ -42,49 +48,49 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
           <Card.Body>
             <dl className="row mr-0">
               <dt className="col-md-6 text-muted text-md-right pl-md-0">
-                Booking Ref &#8470; :{' '}
+                Booking Ref &#8470; :
               </dt>
               <dd className="col-md-6 list-group-item p-md-1">
                 {getBookingProps(bookingId).id}
               </dd>
 
               <dt className="col-md-6 text-muted text-md-right pl-md-0">
-                First Name :{' '}
+                First Name :
               </dt>
               <dd className="col-md-6 list-group-item p-md-1">
                 {getBookingProps(bookingId).firstName}
               </dd>
 
               <dt className="col-md-6 text-muted text-md-right pl-md-0">
-                Last Name :{' '}
+                Last Name :
               </dt>
               <dd className="col-md-6 list-group-item p-md-1">
                 {getBookingProps(bookingId).lastName}
               </dd>
 
               <dt className="col-md-6 text-muted text-md-right pl-md-0">
-                &#8470; of Guests :{' '}
+                &#8470; of Guests :
               </dt>
               <dd className="col-md-6 list-group-item p-md-1">
                 {getBookingProps(bookingId).numberOfGuests}
               </dd>
 
               <dt className="col-md-6 text-muted text-md-right pl-md-0">
-                Dining Date :{' '}
+                Dining Date :
               </dt>
               <dd className="col-md-6 list-group-item p-md-1">
                 {getBookingProps(bookingId).date}
               </dd>
 
               <dt className="col-md-6 text-muted text-md-right pl-md-0">
-                Phone &#8470; :{' '}
+                Phone &#8470; :
               </dt>
               <dd className="col-md-6 list-group-item p-md-1">
                 {getBookingProps(bookingId).phone}
               </dd>
 
               <dt className="col-md-6 text-muted text-md-right pl-md-0">
-                Email :{' '}
+                Email :
               </dt>
               <dd className="col-md-6 list-group-item p-md-1">
                 {getBookingProps(bookingId).email}
@@ -93,7 +99,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               {getBookingProps(bookingId).status || shouldDisplayButton ? (
                 <>
                   <dt className="col-md-6 text-muted text-md-right pl-md-0">
-                    Status :{' '}
+                    Status :
                   </dt>
                   <dd className="col-md-6 list-group-item p-md-1">
                     {getBookingProps(bookingId).status}
@@ -104,9 +110,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
           </Card.Body>
           <Card.Footer className="text-center text-muted py-2 col-md-12">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <label className="text-muted text-md-right pl-md-0 mr-2">
-                Status:{' '}
-              </label>
+              <label className="text-md-right pl-md-0 mr-2">Status: </label>
               <input
                 type="radio"
                 name="status"
@@ -117,7 +121,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
                 onChange={onRadioChange}
                 checked={status === 'Not Arrived'}
               />
-              <label htmlFor="notArrived" className="text-muted mr-2">
+              <label htmlFor="notArrived" className="mr-2">
                 Not Arrived
               </label>
               <input
@@ -136,11 +140,21 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
               {shouldDisplayButton ? (
                 <input
                   type="submit"
-                  value="Update"
+                  value="Save"
                   className="btn btn-outline-success my-2 my-sm-0"
                 />
               ) : null}
             </form>
+            {(status !== getBookingProps(bookingId).status &&
+              shouldDisplayButton === false) ||
+              (shouldDisplayButton === true && (
+                <p className="col-md-6 text-success mx-auto mt-3">
+                  <small>
+                    It looks like you have changing your status. Make sure to
+                    save your changes.
+                  </small>
+                </p>
+              ))}
           </Card.Footer>
         </Card>
       ) : (
