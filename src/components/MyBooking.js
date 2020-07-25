@@ -101,7 +101,10 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
                   <dt className="col-md-6 text-muted text-md-right pl-md-0">
                     Status :
                   </dt>
-                  <dd className="col-md-6 list-group-item p-md-1">
+                  <dd
+                    className="col-md-6 list-group-item p-md-1"
+                    style={{ minHeight: '2rem' }}
+                  >
                     {getBookingProps(bookingId).status}
                   </dd>
                 </>
