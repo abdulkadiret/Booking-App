@@ -154,7 +154,7 @@ const MyBooking = ({ getBookingProps, markSeatedProps }) => {
                 <p className="col-md-6 text-success mx-auto mt-3">
                   <small>
                     It looks like you have changing your status. Make sure to
-                    save your changes.
+                    save your change, to update your status.
                   </small>
                 </p>
               ))}
